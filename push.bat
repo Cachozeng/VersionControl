@@ -1,6 +1,6 @@
 @echo off
 f:
-cd F:\Lingwei\zeng\01 IntroduceDocument
+cd F:\SoftwareTest\zeng\22 VersionControl
 
 git add .
 set /p input=请输入备注信息：
