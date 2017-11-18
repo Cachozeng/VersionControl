@@ -1,0 +1,42 @@
+Git要远比Github功能多，Github只是一个能够提供提交代码到在线网站的一个网站而已
+
+一、Git
+https://gitlab.com/   cacho.zeng@signalfire.cn     abc370201 
+1.获取git 版本：git --version
+2.进入到本地项目文件初始化：git init
+3.检查项目文件状态：git status
+4.添加指定文件到仓库：git add filename
+5.添加所有文件到本地：git add .
+6.创建身份：
+git config --global user.email "394369786@qq.com"
+git config --global user.name "cacho"
+7.查看当前用户和邮箱
+git config user.name    git config user.email
+8.合并到主干：git commit -m "标签，告诉要提交的是什么内容"
+9.创建分支：git branch branchName
+10.切换到分支：git checkout branchName
+创建并切换到分支：git check -b branchName
+11.切换到主干然后合并：git merge branch1
+12.删除分支：git branch -d branch1   强制删除git branch -D branch1
+13.创建标签：git tag tagname
+14.创建带注释的标签  git tag -a v1.1 -m "tag for release version 1.1"
+15.查看有哪些标签 git tag
+16.查看具体标签详细信息：git show tagname
+17.查看某类标签：git tag -l "v1.*"
+18.推送tag到github网站：git push origin  tagname
+19.推送多个标签到github网站：git pust --tags
+20.查看提交的日志（通过commit）：git log   ,一行显示：git log --pretty=oneline
+21.退出编辑状态  q
+22.查看历史命令，找到版本信息：git reflog
+23.回到某个版本：git reset --hard commit_id
+二、Githb
+https://github.com/Cachozeng    394369786@qq.com    abc370201
+1.在网站创建项目后，命令行：git remote add origin https://github.com/Cachozeng/PycharmProjects.git
+2.上传到主干：git push -u origin master    ，然后会弹出登录框登录
+3.上传到分支：git push -u origin branchName
+
+ssh -T git@bitbucket.org  
+ssh git@github.com  
+
+1.在git或者gitee创建一个项目分类
+2.在项目文件目录进行操作
