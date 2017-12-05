@@ -1,6 +1,6 @@
 @echo off
 f:
-cd F:\SoftwareTest\zeng\22 VersionControl
+cd F:\SoftwareTest\Github\22 VersionControl
 
 git add .
 set /p input=请输入备注信息：
