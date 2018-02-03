@@ -1,0 +1,88 @@
+对于我们个人来说，把代码放在https://github.com/上是一个不错的选择，在实际中，我们如何操作呢？主要以下几个方面：
+
+一、准备工作
+1.在https://github.com/注册账号
+2.在Windows上安装Git（本人）：浏览器打开https://git-scm.com/下载
+安装完成后，还需要最后一步设置，创建身份，在命令行输入：
+$ git config --global user.name "Your Name"
+$ git config --global user.email "email@example.com"
+
+二、实际操作
+1.在https://github.com/创建项目
+Github上创建一个project，并将项目路径记录下来
+
+2.通过命令行方式上传项目
+进入到本地项目文件进行初始化：git init
+添加所有文件到本地：git add .
+合并到主干：git commit -m "标签，告诉要提交的是什么内容"
+将文件连接到已创建的项目，命令行：git remote add origin https://github.com/Cachozeng/项目名称.git
+上传到主干：git push -u origin master    ，第一次会弹出登录框登录
+最后在https://github.com/Cachozeng/项目名称  就能够访问你提交的文件了
+
+3.通过命令行方式下载项目
+现在，假设我们从零开发，那么最好的方式是先创建远程库，然后，从远程库克隆。
+复制你要克隆的项目路径:  https://github.com/Cachozeng/test 
+在你要克隆的本地库路径右键“git base here”，输入命令 
+git clone https://github.com/Cachozeng/test.git 然后进入的路径查看是否增加了test文件夹
+
+四、常用命令
+1.获取git 版本：git --version
+2.进入到本地项目文件初始化：git init
+3.检查项目文件状态：git status
+4.添加指定文件到仓库：git add filename
+5.添加所有文件到本地：git add .
+6.创建身份：
+git config --global user.email "cacho.zeng@signalfire.cn"
+git config --global user.name "cacho"
+7.查看当前用户和邮箱
+git config user.name    git config user.email
+8.合并到主干：git commit -m "标签，告诉要提交的是什么内容"
+9.创建分支：git branch branchName
+10.切换到分支：git checkout branchName
+11.切换到主干然后合并：git merge branch1
+12.删除分支：git branch -d branch1   强制删除git branch -D branch1
+13.创建标签：git tag tagname
+14.创建带注释的标签  git tag -a v1.1 -m "tag for release version 1.1"
+15.查看有哪些标签 git tag
+16.查看具体标签详细信息：git show tagname
+17.查看某类标签：git tag -l "v1.*"
+18.推送tag到github网站：git push origin  tagname
+19.推送多个标签到github网站：git pust --tags
+20.查看提交的日志（通过commit）：git log   ,一行显示：git log --pretty=oneline
+21.退出编辑状态  q
+22.查看历史命令，找到版本信息：git reflog
+23.回到某个版本：git reset --hard commit_id
+
+五、批处理
+有时为了能够一键处理所有步骤，可以自己定制写一个批处理文件，提交到远程
+@echo off
+d:
+cd D:\BeautifulGirls
+git init
+git remote add github https://github.com/Cachozeng/BeautifulGirls.git
+git pull github master
+git add .
+git commit -m "add BeautifulGirls"
+git push -f github master
+pause
+
+1.首先要先进入到你要提交的文件路径
+2.进行初始化和连接到远程
+3.添加文件然后提交，进行备注
+4.推送到远程，-f是强制推送
+
+六、回退版本
+1. 查看历史命令，找到版本信息：git reflog
+2. 回到某个版本：git reset --hard 8cf7482（HEAD前面的代码，HEAD@{1}代表最新的）
+
+七、遇到问题
+1. 远程创建了含有Readme的仓库, 本地初始化并添加了远程仓库后, push失败
+解决办法1：强推，即利用强覆盖方式用你本地的代码替代git仓库内的内容: git push –f（想要本地文件覆盖远程文件）
+解决办法2：git pull github master（相当于是从远程获取最新版本并merge到本地）
+上述命令其实相当于git fetch 和 git merge
+在实际使用中，git fetch更安全一些，因为在merge前，我们可以查看更新情况，然后再决定是否合并。
+
+2. 使用命令git remote add时报错，本地库已经关联了远程库。
+解决办法：先查看已经关联了哪个远程库：git remote -v，如果可以删除就删除后重新关联：git remote rm github
+
+
